@@ -1,13 +1,17 @@
-## Size calculator for TE CL HTTP request smuggling
+# Size calculator for HTTP/1.1 request smuggling
 
-I wrote this simple script to easily find Content-Length and Transfer-Encoding sizes for TE CL HTTP request smuggling.
+I wrote this simple script to easily find the different sizes for HTTP/1.1 request smuggling.
 
-## How to
+Enjoy !
 
-Write your data inside a txt file without the 0 which terminates the request for TE. Then: `python 3 TE_CL_size.py -f file.txt`.
+## How to: TECL
+
+Write the data inside a txt file without the 0 which terminates the request for TE. Then: `python3 sizesmuggler.py -f file.txt -t TECL`.
 
 Copy paste the results inside Burp, don't forget to uncheck the "Update Content-Length" in the option of Burp Repeater, and to add the 0\r\n\r\n at the end of the request.
 
-![](_resources/presentation.gif)
+![](_resources/TECL_presentation.gif)
 
-Enjoy !
+## How to: CLTE
+
+Burp automatically updates the Content-Length value for CLTE if the option is checked. If you don't use Burp or want to do it yourself, write the entire data inside a txt file. Then: `python3 sizesmuggler.py -f file.txt -t CLTE`.
